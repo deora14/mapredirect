@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting to Map</title>
+    <script type="text/javascript">
+        var lat = 24.59051;  // Latitude
+        var lon = 74.20014;  // Longitude
+
+        var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+        // Detect if it's an iPhone, iPad, or iPod (iOS)
+        if (/iPhone|iPad|iPod/i.test(userAgent)) {
+            // Redirect to Apple Maps for iOS
+            window.location.href = "https://maps.apple.com/?q=" + lat + "," + lon;
+        }
+        // Detect if it's an Android device
+        else if (/android/i.test(userAgent)) {
+            // Redirect to Google Maps for Android
+            window.location.href = "https://www.google.com/maps?q=" + lat + "," + lon;
+        }
+        // Fallback for unsupported devices (desktop, etc.)
+        else {
+            // Open Google Maps for desktop or other devices
+            window.location.href = "https://www.google.com/maps?q=" + lat + "," + lon;
+        }
+    </script>
+</head>
+<body>
+    <p>Redirecting you to the map...</p>
+</body>
+</html>
