@@ -5,8 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redirecting to Map</title>
     <script type="text/javascript">
-        var lat = 24.59051;  // Latitude
-        var lon = 74.20014;  // Longitude
+        // Function to get a parameter value from the URL
+        function getURLParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        // Get latitude and longitude from URL parameters
+        var lat = parseFloat(getURLParameter('lat')) || 24.59051;  // Default if not found
+        var lon = parseFloat(getURLParameter('lon')) || 74.20014;  // Default if not found
 
         var userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
